@@ -1,9 +1,10 @@
 const fs = require('fs')
-
+const path = require("path")
 
 const storeResults = (domain,urls)=> {
     const results = {[domain]: urls} ; 
-    fs.writeFileSync(`${domain}_urls.json`, JSON.stringify(results,null,2));
+    const filePath = path.join(__dirname,`${domain}_urls.json`)
+    fs.writeFileSync(filePath, JSON.stringify(results,null,2));
     console.log(`Results saved to ${domain}_urls.json`)
 
 }

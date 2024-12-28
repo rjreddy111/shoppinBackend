@@ -18,7 +18,7 @@ const dynamicUrls = async(pageUrl)=> {
     }
 
     const links = await page.evaluate(()=> 
-        Array.from(document.querySelectorAll('a[href*= "/product"]'),(a)=>a.href) 
+        Array.from(document.querySelectorAll('a[href*= "/product"], a[href*="/item"], a[href*="/p/"]'),(a)=>a.href) 
     ); 
     (await browsing).close(); 
     return [...new Set(links)]
